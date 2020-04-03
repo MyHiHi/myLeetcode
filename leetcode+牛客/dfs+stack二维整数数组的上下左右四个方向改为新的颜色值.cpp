@@ -3,7 +3,7 @@
 @Time    :   2020/04/03 10:48:35
 @Author  :   Zhang tao 
 @Version :   1.0
-@Desc    :   二维整数数组的上下左右四个方向改为新的颜色值.cpp
+@Desc    :   dfs/stack二维整数数组的上下左右四个方向改为新的颜色值.cpp
 */
 /*
 有一幅以二维整数数组表示的图画，每一个整数表示该图画的像素值大小，数值在 0 到 65535 之间。
@@ -62,6 +62,38 @@ public:
       stacky.pop();
       change(image, p[0], p[1], newColor);
     }
+    return image;
+  }
+};
+
+// dfs
+class Solution
+{
+public:
+  int l1, l2;
+  int me, newC;
+  void dfs(vector<vector<int>> &image, int r, int c)
+  {
+    if (image[r][c] == me)
+    {
+      image[r][c] = newC;
+      if (r + 1 < l1)
+        dfs(image, r + 1, c);
+      if (c + 1 < l2)
+        dfs(image, r, c + 1);
+      if (r - 1 >= 0)
+        dfs(image, r - 1, c);
+      if (c - 1 >= 0)
+        dfs(image, r, c - 1);
+    }
+  }
+  vector<vector<int>> floodFill(vector<vector<int>> &image, int sr, int sc, int newColor)
+  {
+    l1 = image.size(), l2 = image[0].size();
+    me = image[sr][sc], newC = newColor;
+    if (me == newColor)
+      return image;
+    dfs(image, sr, sc);
     return image;
   }
 };
