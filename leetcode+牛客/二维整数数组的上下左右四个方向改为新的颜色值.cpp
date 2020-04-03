@@ -39,7 +39,7 @@ public:
     for (int t = 0; t < 4; t++)
     {
       int p1 = l[t], p2 = r[t];
-      if (p1 >= 0 && p1 < l1 && p2 >= 0 && p2 < l2 && image[p1][p2] == me && image[p1][p2] != newColor)
+      if (p1 >= 0 && p1 < l1 && p2 >= 0 && p2 < l2 && image[p1][p2] == me)
       {
         image[p1][p2] = newColor;
         vector<int> temp = {p1, p2};
@@ -51,7 +51,10 @@ public:
   {
     l1 = image.size(), l2 = image[0].size();
     me = image[sr][sc];
+    if (me == newColor)
+      return image;
     image[sr][sc] = newColor;
+
     change(image, sr, sc, newColor);
     while (!stacky.empty())
     {
