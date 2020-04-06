@@ -1,9 +1,12 @@
-import itertools
-S = "a1b3"
+import os
+import sys
 
+import pandas as pd
 
-def f(x): return (x.lower(), x.upper()) if x.isalpha() else x
+baseDir = '\\'.join(sys.path[0].split('\\')[:-2])
+path = os.path.join(
+    baseDir, 'Python DataAnalysis\chapter5\demo\data\menu_orders.xls')
 
-
-print(list(map(''.join, itertools.product(*map(f, S)))))
-# p=itertools.product()
+data=pd.read_excel(path)
+ct=lambda x:pd.Series(1,index=x[pd.notnull(x)])
+print()

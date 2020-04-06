@@ -1,0 +1,20 @@
+# To add a new cell, type '# %%'
+# To add a new markdown cell, type '# %% [markdown]'
+
+# %%
+import pandas as pd 
+data=pd.read_excel(r'D:\Documents\myCode\Python DataAnalysis\chapter5\demo\data\menu_orders.xls',header=None)
+d=data.as_matrix()
+d
+
+
+# %%
+ct=lambda x:pd.Series(1,index=x[pd.notnull(x)])
+b=list(map(ct,d))
+b
+
+
+# %%
+data=pd.DataFrame(b).fillna(0)
+data
+
