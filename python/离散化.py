@@ -1,7 +1,11 @@
 from sklearn.cluster import KMeans
 import pandas as pd
+import sys
+import os
 import matplotlib.pyplot as plt
-path = r'C:\Users\Administrator\Desktop\文件\Python DataAnalysis\chapter4\demo\data\discretization_data.xls'
+baseDir = '\\'.join(sys.path[0].split('\\')[:-2])
+path = os.path.join(
+    baseDir, 'Python DataAnalysis\chapter4\demo\data\discretization_data.xls')
 data = pd.read_excel(path).iloc[:, 0].copy()
 k = 4
 # 等宽离散化
