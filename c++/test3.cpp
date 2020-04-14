@@ -1,27 +1,12 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <string>
+#include <queue>
 using namespace std;
 int main()
 {
-    string g = "";
-    g += 'a';
-    cout << g;
-    return 0;
+    priority_queue<int> p = {12, 4, 23, 12, 4, 5, 6, 6, 65, 45};
+    auto t = p.begin();
+    while ()
+        return 0;
 }
-
-
-1
-10 10
-AAAAAADROW
-WORDBBBBBB
-OCCCWCCCCC
-RFFFFOFFFF
-DHHHHHRHHH
-ZWZVVVVDID
-ZOZVXXDKIR
-ZRZVXRXKIO
-ZDZVOXXKIW
-ZZZWXXXKIK
-WORD
