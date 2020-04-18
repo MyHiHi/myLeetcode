@@ -1,31 +1,40 @@
-n, m = list(map(int, input().split()))
-graphs = [[] for _ in range(n+1)]
-colors = [0 for _ in range(n+1)]
-for _ in range(m):
-    a, b = list(map(int, input().split()))
-    graphs[a] += [b]
-    graphs[b] += [a]
+from collections import defaultdict
+def canReorderDoubled(A) -> bool:
+        # A.sort();
+        myMap=defaultdict(int);
+        for a in A:
+            myMap[a]+=1;
+        cnt=0;
+        
+        for i in range(len(A)):
+            print('**',A[i],myMap[A[i]],2*A[i],myMap[2*A[i]])
+            
+            if myMap[A[i]]>0 and myMap[2*A[i]]>0:
+                myMap[A[i]]-=1;
+                myMap[2*A[i]]-=1;
+                cnt+=2
+            print('map: ',myMap,'**',cnt)
+        return cnt==len(A)
+A=[1,2,1,-8,8,-4,4,-4,2,-2]
+print(canReorderDoubled(A))
 
-
-def dfs(colors, i, c):
-    colors[i] = c
-    print(colors)
-    for v in graphs[i]:
-        if colors[v] == c:
-            return False
-        elif colors[v] == 0 and not dfs(colors, i, -c):
-            return False
-    return True
-
-
-def paint():
-    for i in range(n+1):
-        if (colors[i] == 0 and not dfs(colors, i, 1)):
-            return False
-    return True
-
-
-if paint():
-    print('Yes')
-else:
-    print('No')
+** 1 2 2 2
+map:  defaultdict(<class 'int'>, {1: 1, 2: 1, -8: 1, 8: 1, -4: 2, 4: 1, -2: 1}) ** 2
+** 2 1 4 1
+map:  defaultdict(<class 'int'>, {1: 1, 2: 0, -8: 1, 8: 1, -4: 2, 4: 0, -2: 1}) ** 4
+** 1 1 2 0
+map:  defaultdict(<class 'int'>, {1: 1, 2: 0, -8: 1, 8: 1, -4: 2, 4: 0, -2: 1}) ** 4
+** -8 1 -16 0
+map:  defaultdict(<class 'int'>, {1: 1, 2: 0, -8: 1, 8: 1, -4: 2, 4: 0, -2: 1, -16: 0}) ** 4
+** 8 1 16 0
+map:  defaultdict(<class 'int'>, {1: 1, 2: 0, -8: 1, 8: 1, -4: 2, 4: 0, -2: 1, -16: 0, 16: 0}) ** 4
+** -4 2 -8 1
+map:  defaultdict(<class 'int'>, {1: 1, 2: 0, -8: 0, 8: 1, -4: 1, 4: 0, -2: 1, -16: 0, 16: 0}) ** 6
+** 4 0 8 1
+map:  defaultdict(<class 'int'>, {1: 1, 2: 0, -8: 0, 8: 1, -4: 1, 4: 0, -2: 1, -16: 0, 16: 0}) ** 6
+** -4 1 -8 0
+map:  defaultdict(<class 'int'>, {1: 1, 2: 0, -8: 0, 8: 1, -4: 1, 4: 0, -2: 1, -16: 0, 16: 0}) ** 6
+** 2 0 4 0
+map:  defaultdict(<class 'int'>, {1: 1, 2: 0, -8: 0, 8: 1, -4: 1, 4: 0, -2: 1, -16: 0, 16: 0}) ** 6
+** -2 1 -4 1
+map:  defaultdict(<class 'int'>, {1: 1, 2: 0, -8: 0, 8: 1, -4: 0, 4: 0, -2: 0, -16: 0, 16: 0}) ** 8
