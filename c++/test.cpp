@@ -1,25 +1,25 @@
+/*
+@File    :   test.cpp
+@Time    :   2020/04/24 21:10:04
+@Author  :   Zhang tao 
+@Version :   1.0
+@Desc    :   test.cpp
+*/
+/*
+*/
 #include <iostream>
-#include <algorithm>
 #include <vector>
-
 using namespace std;
-int countWays(int x, int y)
-{
-  vector<vector<int>> dp(x, vector<int>(y));
-  dp[0][0] = 1;
-  for (int i = 0; i < x; i++)
-    for (int j = 0; j < y; j++)
-    {
-      if (i == 0 && j != 0)
-        dp[i][j] = 1;
-      else if (j == 0 && i != 0)
-        dp[i][j] = 1;
-      else
-        dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
-    }
-  return dp[x - 1][y - 1];
-}
 int main()
 {
-  cout << countWays(2, 2);
+  vector<int> p = {12, 5, 3, 2, 32, 323, 5};
+  int t = p.size() / 2;
+  vector<int> s1(p.begin(), p.begin() + t),
+      s2(p.begin() + t, p.end());
+  for (auto a : s2)
+  {
+    cout << a << " ";
+  }
+
+  return 0;
 }
