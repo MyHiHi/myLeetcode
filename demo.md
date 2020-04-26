@@ -1,24 +1,20 @@
-# demo
-> say something
-> 
->>  `as`
+<center>
+
+# <font color=#0099ff size=72>demo</font>
+
+**updated：2020/04/26 16:25:14**;
+**&nbsp; &nbsp;author:Zhang tao**
+</center>
+
+## 题目
+
+> say
+
+## 思路
+
+> say
+
+## 代码
+
 ```python
-import  sklearn
 ```
-```
-vscode
-```
-#### 无序列表（加号和嵌套）Unordered Lists (+)
-+ 列表一
-+ 列表二
-    + 列表二-1
-    + 列表二-2
-    + 列表二-3
-
-
-### 绘制流程图 Flowchart
-
-$$x > y$$
-# demo.md
-**updated：2020/04/26 00:14:39**;
-**author:Zhang tao**
