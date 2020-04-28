@@ -1,4 +1,3 @@
-p = [[0]]*3
-# p[0] = 12
-p[0][0] = 100
-print(p)
+p = -6
+p1 = abs(p)
+print(bin(p), bin(p1), bin(p & p1), p & p1)
